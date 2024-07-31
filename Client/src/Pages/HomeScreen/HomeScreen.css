@@ -1,0 +1,172 @@
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('../../Assets/CenturyGothic.ttf') format('truetype');
+}
+
+/* General styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat Rounded', sans-serif;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    overflow-x: hidden;
+}
+
+.home-screen {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    position: relative;
+}
+
+.home-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(13, 13, 71, 0.8), rgba(13, 13, 71, 0.4));
+    z-index: 1;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    z-index: 2;
+    margin-top: 40px;
+    position: relative;
+    width: 100%;
+}
+
+.header .logo {
+    width: 20%; /* Responsive logo size */
+    max-width: 300px;
+    min-width: 150px;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, rgba(0, 82, 240, 0), rgba(0, 82, 240, 0.8), rgba(0, 82, 240, 0));
+    background-size: 300% 100%;
+    animation: glowWave 8s ease-in-out infinite;
+}
+
+@keyframes glowWave {
+    0%, 100% { background-position: 100% center; }
+    50% { background-position: 0% center; }
+}
+
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+}
+
+.main-content h1 {
+    font-size: 4vw; /* Responsive font size */
+    max-font-size: 5rem;
+    margin: 20px 0;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-family: 'Century Gothic', sans-serif;
+    cursor: pointer;
+    animation: colorShift 6s linear infinite;
+}
+
+@keyframes colorShift {
+    0%, 100% { color: #ffffff; }
+    50% { color: #00bfff; }
+}
+
+.icon-nav {
+    display: flex;
+    justify-content: center;
+    gap: 25vw; /* Responsive gap */
+    margin-top: 20px;
+    z-index: 2;
+}
+
+.icon-nav .icon {
+    width: 15vw; /* Responsive icon size */
+    min-width: 100px;
+    max-width: 140px;
+    text-align: center;
+    transition: transform 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.icon-nav .icon img {
+    width: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: block;
+    margin: auto;
+}
+
+.icon-nav .icon:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #00bfff;
+}
+
+.icon-nav .icon p {
+    margin-top: 10px;
+    font-size: 1.5vw; /* Responsive text size */
+    min-font-size: 0.8rem;
+    max-font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    background-color: rgba(15, 82, 240, 0.8);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: 'Montserrat Rounded', sans-serif;
+    display: inline-block;
+    white-space: nowrap;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.icon-nav .icon:hover p {
+    background-color: rgba(0, 117, 255, 0.8);
+    transform: translateY(-5px);
+}
+
+/* Additional Media Queries for Smaller Devices */
+@media (max-width: 768px) {
+    .header .logo {
+        width: 40%; /* Smaller logo on smaller screens */
+    }
+
+    .main-content h1 {
+        font-size: 5vw; /* Smaller font size on smaller screens */
+    }
+
+    .icon-nav {
+        gap: 5%; /* Smaller gap on smaller screens */
+    }
+
+    .icon-nav .icon {
+        width: 25vw; /* Larger relative size on smaller screens */
+    }
+
+    .icon-nav .icon p {
+        font-size: 3vw; /* Smaller text size on smaller screens */
+    }
+}
